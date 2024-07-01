@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Ofertas } from "./Ofertas";
+import { Tendencias } from "./Ofertas";
 export const Main = () => {
   useEffect(() => {
     AOS.init({
@@ -34,20 +34,20 @@ export const Main = () => {
                 className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-6 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
-                New Arrivals
+                Todos los productos
               </Link>
               <Link
                 href="#"
                 className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-6 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                 prefetch={false}
               >
-                Popular
+                Contacto
               </Link>
             </div>
           </div>
         </div>
       </section>
-      <Ofertas />
+      <Tendencias />
     </main>
   );
 };
