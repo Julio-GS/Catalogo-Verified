@@ -23,19 +23,6 @@ const HomePage = ({ products }) => {
       <Header />
       <Main products={products} />
       <Footer />
-      {/* <h1>Productos</h1>
-      <div>
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
-      <h2>Productos Destacados</h2>
-      <div>
-        {featuredProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-              
-      </div> */}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { MountainIcon } from "@/icons/MountainIcon";
 import { SearchIcon } from "@/icons/SearchIcon";
 import Link from "next/link";
 
-export const Header = () => {
+export const Header = ({ products }) => {
   return (
     <header className="bg-background border-b px-4 md:px-6 py-3 flex items-center justify-between fixed top-0 left-0 w-full z-50">
       <Link href="/" className="flex items-center gap-2" prefetch={false}>
@@ -12,7 +12,7 @@ export const Header = () => {
       </Link>
       <nav className="hidden md:flex items-center gap-4">
         <Link
-          href="#"
+          href="/AllProducts"
           className="text-sm font-medium hover:underline underline-offset-4"
           prefetch={false}
         >
