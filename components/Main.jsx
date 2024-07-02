@@ -1,10 +1,10 @@
 "use client";
+import { Tendencias } from "@/components/Ofertas";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { useEffect } from "react";
-import { Tendencias } from "./Ofertas";
-export const Main = () => {
+export const Main = ({ products }) => {
   useEffect(() => {
     AOS.init({
       // Opciones de AOS (opcional)
@@ -16,11 +16,8 @@ export const Main = () => {
   return (
     <main className="flex-1 pt-16">
       <section className=" relative h-[600px] w-full bg-[#DADADA] ">
-        <div
-          className="flex items-center w-full h-full background-image-header"
-          data-aos="fade-up"
-        >
-          <div className="space-y-4 p-8">
+        <div className="flex items-center w-full h-full background-image-header">
+          <div className="space-y-4 p-8" data-aos="fade-up">
             <h1 className="text-3xl md:text-4xl font-bold">
               Descubri las tendencias
             </h1>
@@ -47,7 +44,7 @@ export const Main = () => {
           </div>
         </div>
       </section>
-      <Tendencias />
+      <Tendencias products={products} />
     </main>
   );
 };

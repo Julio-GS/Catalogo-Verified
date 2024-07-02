@@ -1,18 +1,7 @@
-import { getSheetData } from "@/lib/googleSheets";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-export const Tendencias = () => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const sheetData = await getSheetData(); // Replace 'Sheet1' with your sheet name
-      setData(sheetData);
-    }
-
-    fetchData();
-  }, []);
+export const Tendencias = ({ products }) => {
+  const tendencias = products.slice(3, 7);
   return (
     <section className="bg-muted py-12 md:py-24">
       <div className="container">
@@ -25,9 +14,9 @@ export const Tendencias = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-          {data.slice(0, 4).map((item, index) => (
+          {tendencias.map((item, index) => (
             <Link
-              href="/product"
+              href={`/products/${item.ID}`}
               className="group transform transition duration-300 hover:scale-105"
               prefetch={false}
               key={index}
