@@ -7,7 +7,7 @@ import { getSheetData } from "@/lib/googleSheets";
 
 export async function getStaticProps() {
   const products = await getSheetData();
-  console.log(products);
+
   return {
     props: { products },
     revalidate: 60,
@@ -15,9 +15,6 @@ export async function getStaticProps() {
 }
 
 const HomePage = ({ products }) => {
-  console.log(products);
-
-  const featuredProducts = products.slice(0, 4);
   return (
     <div className="flex flex-col min-h-[100dvh] w-screen">
       <Header />

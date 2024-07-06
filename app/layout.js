@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AirShoes",
-  description: "Pagina para emprendimiento personal de venta de zapatillas",
+  title: "Catalogo-Verified",
+  description: "Pagina de catalogo para venta de Iphone y Smartphone",
 };
 
 export default function RootLayout({ children }) {

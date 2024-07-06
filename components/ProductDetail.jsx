@@ -1,7 +1,6 @@
 // components/ProductDetail.js
 "use client";
 
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -14,16 +13,16 @@ export const ProductDetail = ({ product }) => {
 
   return (
     <section className="py-24 w-full">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
         <div className="w-full">
           <Image
             src={mainImage}
             alt="Producto"
             width={500}
             height={500}
-            className="rounded-lg shadow-lg object-cover h-[700px] w-full"
+            className="rounded-lg shadow-lg object-cover h-[700px] w-full p-8"
           />
-          <div className="flex gap-4 mt-4 w-full">
+          {/* <div className="flex gap-4 mt-4 w-full">
             <Image
               src={product.imgPrincipal}
               alt="Producto"
@@ -48,7 +47,7 @@ export const ProductDetail = ({ product }) => {
               className="rounded-lg shadow-lg cursor-pointer"
               onClick={() => setMainImage(product.imgCostado)}
             />
-          </div>
+          </div> */}
         </div>
         <div>
           <h1 className="text-3xl font-bold text-gray-800 mb-4">
@@ -60,7 +59,7 @@ export const ProductDetail = ({ product }) => {
             </h3>
             <p className="text-gray-600">{product.Descripcion}</p>
           </div>
-          <div className="mb-8">
+          {/* <div className="mb-8">
             <h3 className="text-lg font-medium text-gray-800 mb-2">
               Zapatillas Premium Inspiradas en Diseños Clásicos
             </h3>
@@ -89,20 +88,22 @@ export const ProductDetail = ({ product }) => {
               Comodidad sin igual: La plantilla acolchada y la suela flexible te
               mantienen cómodo en cada paso.
             </p>
-          </div>
+          </div> */}
           <div className="mb-8">
-            <h3 className="text-lg font-medium text-gray-800 mb-2">Talla</h3>
+            <h3 className="text-lg font-medium text-gray-800 mb-2">
+              Capacidad
+            </h3>
             <div className="flex space-x-4 select-none">
-              {product.Talles.split(" ").map((talle, index) => (
+              {product.Capacidad.split(" ").map((capacidad, index) => (
                 <label key={index}>
                   <input
                     type="radio"
                     name="type"
-                    value={talle}
+                    value={capacidad}
                     className="peer sr-only"
                   />
                   <p className="px-4 py-2 bg-white peer-checked:bg-black peer-checked:text-white rounded-md border border-gray-300 cursor-pointer">
-                    {talle}
+                    {capacidad}
                   </p>
                 </label>
               ))}
@@ -110,11 +111,16 @@ export const ProductDetail = ({ product }) => {
           </div>
 
           <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-800">$65.000</span>
-            <Link href="https://wa.link/cmof43" prefetch={false}>
-              <Button className="bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-colors">
-                Contactame
-              </Button>
+            <span className="text-3xl font-bold text-gray-800">
+              {product.Precio}
+            </span>
+            <Link href="https://wa.me/5491164061265" prefetch={false}>
+              <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 transition hover:scale-110">
+                <span>Contactame</span>
+                <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
+                  <div class="relative h-full w-8 bg-white/20"></div>
+                </div>
+              </button>
             </Link>
           </div>
         </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 export const MoreProducts = ({ products = [] }) => {
   const seleccionados = products.slice(4, 8);
+  console.log(seleccionados);
   return (
     <section className="bg-muted py-12">
       <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -29,9 +30,11 @@ export const MoreProducts = ({ products = [] }) => {
                 <div className="p-4 bg-background">
                   <h3 className="text-xl font-bold">{item.Nombre}</h3>
                   <p className="text-sm text-muted-foreground">
-                    El agregado perfecto para tu outfit
+                    Explora esta opcion
                   </p>
-                  <h4 className="text-lg font-semibold md:text-xl">$65.000</h4>
+                  <h4 className="text-lg font-semibold md:text-xl">
+                    {item.Precio}
+                  </h4>
                 </div>
               </div>
             </div>

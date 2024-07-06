@@ -1,14 +1,20 @@
 import { Button } from "@/components/ui/button";
-import { MountainIcon } from "@/icons/MountainIcon";
 import { SearchIcon } from "@/icons/SearchIcon";
+import srcLogo from "@/public/logo.png";
+import Image from "next/image";
 import Link from "next/link";
 
-export const Header = ({ products }) => {
+export const Header = () => {
   return (
-    <header className="bg-background border-b px-4 md:px-6 py-3 flex items-center justify-between fixed top-0 left-0 w-full z-50">
+    <header className="bg-[#DADADA] border-b px-4 md:px-6 py-3 flex items-center justify-between fixed top-0 left-0 w-full z-50 mb-1">
       <Link href="/" className="flex items-center gap-2" prefetch={false}>
-        <MountainIcon className="h-6 w-6" />
-        <span className="text-lg font-semibold">AirShoes</span>
+        <Image
+          src={srcLogo}
+          alt="Logo Verified"
+          width={150}
+          height={150}
+          className=""
+        />
       </Link>
       <nav className="hidden md:flex items-center gap-4">
         <Link
@@ -16,10 +22,17 @@ export const Header = ({ products }) => {
           className="text-sm font-medium hover:underline underline-offset-4"
           prefetch={false}
         >
-          Zapatillas
+          Iphone
         </Link>
         <Link
-          href="#"
+          href="/Smartphone"
+          className="text-sm font-medium hover:underline underline-offset-4"
+          prefetch={false}
+        >
+          Smartphone
+        </Link>
+        <Link
+          href="https://wa.me/5491164061265"
           className="text-sm font-medium hover:underline underline-offset-4"
           prefetch={false}
         >
@@ -45,6 +58,7 @@ export const Header = ({ products }) => {
           <SearchIcon className="h-5 w-5" />
           <span className="sr-only">Search</span>
         </Button>
+
         {/* <Button variant="ghost" size="icon" className="rounded-full">
           <ShoppingCartIcon className="h-5 w-5" />
           <span className="sr-only">Cart</span>
