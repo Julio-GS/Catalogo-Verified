@@ -17,7 +17,7 @@ export async function getStaticProps() {
 const HomePage = ({ products }) => {
   return (
     <div className="flex flex-col min-h-[100dvh] w-screen">
-      <Header />
+      <Header products={products} />
       <Main products={products} />
       <Footer />
     </div>
