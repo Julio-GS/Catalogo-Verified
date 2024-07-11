@@ -7,6 +7,7 @@ import { getSheetData } from "@/lib/googleSheets"; // Ajusta la ruta según sea 
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+
 export async function getStaticProps() {
   const products = await getSheetData();
   return {
@@ -23,11 +24,6 @@ const AllProducts = ({ products }) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const filters = [
-    // {
-    //   name: "category",
-    //   label: "Categoría",
-    //   options: [...new Set(products.map((product) => product.Categoría))],
-    // },
     {
       name: "capacity",
       label: "Capacidad",
