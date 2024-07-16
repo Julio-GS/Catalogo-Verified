@@ -17,8 +17,8 @@ export async function getStaticProps() {
   };
 }
 
-export default function Samsung({ products }) {
-  const Samsung = products.filter((product) => product.Marca === "Samsung");
+export default function Xiaomi({ products }) {
+  const Xiaomi = products.filter((product) => product.Marca === "Xiaomi");
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -30,15 +30,15 @@ export default function Samsung({ products }) {
       options: [
         ...new Set(
           products
-            .filter((product) => product.Marca === "Samsung")
+            .filter((product) => product.Marca === "Xiaomi")
             .map((product) => product.Capacidad)
         ),
       ],
     },
   ];
   useEffect(() => {
-    setResults(Samsung);
-    setFilteredResults(Samsung);
+    setResults(Xiaomi);
+    setFilteredResults(Xiaomi);
   }, []);
   const handleFilterChange = (selectedFilters) => {
     const filtered = filterProducts(results, selectedFilters);
@@ -90,7 +90,7 @@ export default function Samsung({ products }) {
               </div>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todas nuestros Smartphones Samsung
+              Descrubri todas nuestros Smartphones Motorola
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
               {filteredResults.map((product, index) => (

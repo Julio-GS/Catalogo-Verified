@@ -17,8 +17,10 @@ export async function getStaticProps() {
   };
 }
 
-export default function Samsung({ products }) {
-  const Samsung = products.filter((product) => product.Marca === "Samsung");
+export default function Accesorios({ products }) {
+  const Accesorios = products.filter(
+    (product) => product.Categoría === "Accesorios"
+  );
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -30,15 +32,15 @@ export default function Samsung({ products }) {
       options: [
         ...new Set(
           products
-            .filter((product) => product.Marca === "Samsung")
+            .filter((product) => product.Categoría === "Accesorios")
             .map((product) => product.Capacidad)
         ),
       ],
     },
   ];
   useEffect(() => {
-    setResults(Samsung);
-    setFilteredResults(Samsung);
+    setResults(Accesorios);
+    setFilteredResults(Accesorios);
   }, []);
   const handleFilterChange = (selectedFilters) => {
     const filtered = filterProducts(results, selectedFilters);
@@ -90,7 +92,7 @@ export default function Samsung({ products }) {
               </div>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todas nuestros Smartphones Samsung
+              Descrubri todas nuestros AirPods
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
               {filteredResults.map((product, index) => (
@@ -106,7 +108,7 @@ export default function Samsung({ products }) {
                       alt={product.Nombre}
                       width={300}
                       height={300}
-                      className="h-[300px] p-4 mx-auto object-cover"
+                      className="h-[300px] p-4 mx-auto "
                     />
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>

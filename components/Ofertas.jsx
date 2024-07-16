@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 export const Tendencias = ({ products }) => {
-  const tendencias = products.slice(3, 11);
+  const Iphone = products.filter((product) => product.Categoría === "iPhone");
+  const tendencias = Iphone.slice(3, 11);
   return (
     <section className="bg-muted py-12 md:py-24">
       <div className="container">

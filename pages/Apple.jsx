@@ -3,7 +3,7 @@ import FiltersDrawer from "@/components/FiltersDrawer";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { filterProducts } from "@/lib/filterProducts";
-import { getSheetData } from "@/lib/googleSheets";
+import { getSheetData } from "@/lib/googleSheets"; // Ajusta la ruta según sea necesario
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -17,28 +17,39 @@ export async function getStaticProps() {
   };
 }
 
-export default function Samsung({ products }) {
-  const Samsung = products.filter((product) => product.Marca === "Samsung");
+const Apple = ({ products }) => {
+  const Apple = products.filter((product) => product.Marca === "Apple");
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const filters = [
     {
+      name: "category",
+      label: "Categoría",
+      options: [
+        ...new Set(
+          products
+            .filter((product) => product.Marca === "Apple")
+            .map((product) => product.Categoría)
+        ),
+      ],
+    },
+    {
       name: "capacity",
       label: "Capacidad",
       options: [
         ...new Set(
           products
-            .filter((product) => product.Marca === "Samsung")
+            .filter((product) => product.Marca === "Apple")
             .map((product) => product.Capacidad)
         ),
       ],
     },
   ];
   useEffect(() => {
-    setResults(Samsung);
-    setFilteredResults(Samsung);
+    setResults(Apple);
+    setFilteredResults(Apple);
   }, []);
   const handleFilterChange = (selectedFilters) => {
     const filtered = filterProducts(results, selectedFilters);
@@ -90,9 +101,9 @@ export default function Samsung({ products }) {
               </div>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todas nuestros Smartphones Samsung
+              Descrubri todos nuestro productos Apple
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {filteredResults.map((product, index) => (
                 <div key={index}>
                   <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 bg-white">
@@ -106,12 +117,12 @@ export default function Samsung({ products }) {
                       alt={product.Nombre}
                       width={300}
                       height={300}
-                      className="h-[300px] p-4 mx-auto object-cover"
+                      className="h-[250px] p-4 mx-auto my-auto object-contain"
                     />
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Descubre el que mejor se adapte a tus necesidades.
+                        Todo lo que necesites saber sobre el {product.Nombre}
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
                         {product.Precio}
@@ -127,4 +138,6 @@ export default function Samsung({ products }) {
       <Footer />
     </div>
   );
-}
+};
+
+export default Apple;

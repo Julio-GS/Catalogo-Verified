@@ -68,27 +68,21 @@ export const Header = ({ products }) => {
           {openDropdown === "apple" && (
             <div className="absolute top-full left-0 mt-2 w-48 bg-black text-white shadow-lg">
               <Link
-                href="/apple/macbook"
+                href="/MacBook"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 MacBook
               </Link>
-              <Link
-                href="/apple/ipad"
-                className="block px-4 py-2 hover:bg-gray-800"
-              >
+              <Link href="/iPad" className="block px-4 py-2 hover:bg-gray-800">
                 iPad
               </Link>
               <Link
-                href="/apple/apple-watch"
+                href="/AppleWatch"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 Apple Watch
               </Link>
-              <Link
-                href="/apple/imac"
-                className="block px-4 py-2 hover:bg-gray-800"
-              >
+              <Link href="/iMac" className="block px-4 py-2 hover:bg-gray-800">
                 iMac
               </Link>
               <Link
@@ -98,14 +92,14 @@ export const Header = ({ products }) => {
                 Mac
               </Link>
               <Link
-                href="/apple/accessories"
+                href="/Accesorios"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 Accesorios
               </Link>
 
               <Link
-                href="/apple"
+                href="/Apple"
                 className="block px-4 py-2 font-bold text-[#1CA0F3] hover:bg-gray-800"
               >
                 Todos los productos de Apple
@@ -145,13 +139,13 @@ export const Header = ({ products }) => {
                 Samsung
               </Link>
               <Link
-                href="/apple/ipad"
+                href="/Motorola"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 Motorola
               </Link>
               <Link
-                href="/apple/apple-watch"
+                href="/Xiaomi"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 Xiaomi

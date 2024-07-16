@@ -17,8 +17,8 @@ export async function getStaticProps() {
   };
 }
 
-export default function Samsung({ products }) {
-  const Samsung = products.filter((product) => product.Marca === "Samsung");
+export default function MacBook({ products }) {
+  const MacBook = products.filter((product) => product.Categoría === "MacBook");
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -30,15 +30,15 @@ export default function Samsung({ products }) {
       options: [
         ...new Set(
           products
-            .filter((product) => product.Marca === "Samsung")
+            .filter((product) => product.Categoría === "MacBook")
             .map((product) => product.Capacidad)
         ),
       ],
     },
   ];
   useEffect(() => {
-    setResults(Samsung);
-    setFilteredResults(Samsung);
+    setResults(MacBook);
+    setFilteredResults(MacBook);
   }, []);
   const handleFilterChange = (selectedFilters) => {
     const filtered = filterProducts(results, selectedFilters);
@@ -90,12 +90,12 @@ export default function Samsung({ products }) {
               </div>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todas nuestros Smartphones Samsung
+              Descrubri todas las MacBook
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredResults.map((product, index) => (
                 <div key={index}>
-                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 bg-white">
+                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
                     <Link href={`/products/${product.ID}`}>
                       <div className="absolute inset-0 z-10">
                         <span className="sr-only">View</span>
@@ -106,12 +106,12 @@ export default function Samsung({ products }) {
                       alt={product.Nombre}
                       width={300}
                       height={300}
-                      className="h-[300px] p-4 mx-auto object-cover"
+                      className="h-[200px] pt-4 mx-auto "
                     />
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Descubre el que mejor se adapte a tus necesidades.
+                        La mejor McBook es la que se adapta a tu estilo
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
                         {product.Precio}

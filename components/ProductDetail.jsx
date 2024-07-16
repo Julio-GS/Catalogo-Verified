@@ -14,13 +14,13 @@ export const ProductDetail = ({ product }) => {
   return (
     <section className="py-24 w-full">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
-        <div className="w-full">
+        <div className="max-w-full mx-auto">
           <Image
             src={mainImage}
             alt="Producto"
             width={500}
             height={500}
-            className="rounded-lg shadow-lg object-cover h-[700px] w-full p-8"
+            className="rounded-lg shadow-lg mx-auto h-[600px] p-8 object-contain "
           />
           {/* <div className="flex gap-4 mt-4 w-full">
             <Image
@@ -89,26 +89,30 @@ export const ProductDetail = ({ product }) => {
               mantienen cómodo en cada paso.
             </p>
           </div> */}
-          <div className="mb-8">
-            <h3 className="text-lg font-medium text-gray-800 mb-2">
-              Capacidad
-            </h3>
-            <div className="flex space-x-4 select-none">
-              {product.Capacidad.split(" ").map((capacidad, index) => (
-                <label key={index}>
-                  <input
-                    type="radio"
-                    name="type"
-                    value={capacidad}
-                    className="peer sr-only"
-                  />
-                  <p className="px-4 py-2 bg-white peer-checked:bg-black peer-checked:text-white rounded-md border border-gray-300 cursor-pointer">
-                    {capacidad}
-                  </p>
-                </label>
-              ))}
+          {product.Capacidad ? (
+            <div className="mb-8">
+              <h3 className="text-lg font-medium text-gray-800 mb-2">
+                Capacidad
+              </h3>
+              <div className="flex space-x-4 select-none">
+                {product.Capacidad.split(" ").map((capacidad, index) => (
+                  <label key={index}>
+                    <input
+                      type="radio"
+                      name="type"
+                      value={capacidad}
+                      className="peer sr-only"
+                    />
+                    <p className="px-4 py-2 bg-white peer-checked:bg-black peer-checked:text-white rounded-md border border-gray-300 cursor-pointer">
+                      {capacidad}
+                    </p>
+                  </label>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <div></div>
+          )}
 
           <div className="flex items-center justify-between">
             <span className="text-3xl font-bold text-gray-800">
