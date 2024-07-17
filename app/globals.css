@@ -75,6 +75,27 @@
   }
 }
 
+@media (max-width: 768px) {
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: black;
+    width: 200px;
+    z-index: 10;
+  }
+  .nav-dropdown a {
+    display: block;
+    padding: 12px 16px;
+    color: white;
+    text-decoration: none;
+  }
+  .nav-dropdown a:hover {
+    background-color: #333;
+  }
+}
+
 .background-image-header {
   background-image: url("/visual_content/Header.jpg");
   background-size: cover;

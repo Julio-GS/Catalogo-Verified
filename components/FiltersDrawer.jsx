@@ -15,7 +15,7 @@ const FiltersDrawer = ({ filters, onFilterChange, isOpen, onClose }) => {
   return (
     <div
       className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform transform ${
-        isOpen ? "translate-x-0" : "translate-x-full"
+        isOpen ? "translate-x-0 z-10" : "translate-x-full "
       }`}
     >
       <button onClick={onClose} className="p-2 text-black">
