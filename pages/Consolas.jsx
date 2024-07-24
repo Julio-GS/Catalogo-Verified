@@ -3,7 +3,7 @@ import FiltersDrawer from "@/components/FiltersDrawer";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { filterProducts } from "@/lib/filterProducts";
-import { getSheetData } from "@/lib/googleSheets"; // Ajusta la ruta según sea necesario
+import { getSheetData } from "@/lib/googleSheets";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -17,39 +17,30 @@ export async function getStaticProps() {
   };
 }
 
-const Apple = ({ products }) => {
-  const Apple = products.filter((product) => product.Marca === "Apple");
+export default function Consolas({ products }) {
+  const Consolas = products.filter(
+    (product) => product.Categoría === "Consolas"
+  );
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const filters = [
     {
-      name: "category",
-      label: "Categoría",
-      options: [
-        ...new Set(
-          products
-            .filter((product) => product.Marca === "Apple")
-            .map((product) => product.Categoría)
-        ),
-      ],
-    },
-    {
       name: "capacity",
       label: "Capacidad",
       options: [
         ...new Set(
           products
-            .filter((product) => product.Marca === "Apple")
+            .filter((product) => product.Categoría === "Consolas")
             .map((product) => product.Capacidad)
         ),
       ],
     },
   ];
   useEffect(() => {
-    setResults(Apple);
-    setFilteredResults(Apple);
+    setResults(Consolas);
+    setFilteredResults(Consolas);
   }, []);
   const handleFilterChange = (selectedFilters) => {
     const filtered = filterProducts(results, selectedFilters);
@@ -101,12 +92,12 @@ const Apple = ({ products }) => {
               </div>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todos nuestro productos Apple
+              Descrubri todas nuestras Consolas
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {filteredResults.map((product, index) => (
                 <div key={index}>
-                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 bg-white">
+                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
                     <Link href={`/products/${product.ID}`}>
                       <div className="absolute inset-0 z-10">
                         <span className="sr-only">View</span>
@@ -117,13 +108,11 @@ const Apple = ({ products }) => {
                       alt={product.Nombre}
                       width={300}
                       height={300}
-                      className="h-[250px] p-4 mx-auto my-auto object-contain"
+                      className="h-[300px] p-4 mx-auto "
                     />
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Todo lo que necesites saber sobre el {product.Nombre}
-                      </p>
+                      <p className="text-sm text-muted-foreground"></p>
                       <h4 className="text-lg font-semibold md:text-xl">
                         {product.Precio ? `$${product.Precio}` : "Sin Stock"}
                       </h4>
@@ -138,6 +127,4 @@ const Apple = ({ products }) => {
       <Footer />
     </div>
   );
-};
-
-export default Apple;
+}

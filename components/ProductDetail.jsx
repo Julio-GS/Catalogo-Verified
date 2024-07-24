@@ -7,8 +7,15 @@ import { useEffect, useState } from "react";
 
 export const ProductDetail = ({ product }) => {
   const [mainImage, setMainImage] = useState("");
+  const [stock, setStock] = useState("");
+  const currentUrl = typeof window !== "undefined" ? window.location.href : "";
   useEffect(() => {
     setMainImage(product.imgPrincipal);
+    if (product.Precio) {
+      setStock(product.Precio);
+    } else {
+      setStock("Sin stock");
+    }
   }, [product]);
 
   return (
@@ -115,10 +122,11 @@ export const ProductDetail = ({ product }) => {
           )}
 
           <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-800">
-              {product.Precio}
-            </span>
-            <Link href="https://wa.me/5491164061265" prefetch={false}>
+            <span className="text-3xl font-bold text-gray-800">{stock}</span>
+            <Link
+              href={`https://wa.me/5491164061265?text=Hola%2C%20estoy%20interesado%20en%20este%20producto%20que%20vi%20en%20el%20catalogo%20web%20${currentUrl}`}
+              prefetch={false}
+            >
               <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 transition hover:scale-110">
                 <span>Contactame</span>
                 <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">

@@ -114,7 +114,7 @@ export default function iMac({ products }) {
                         Descubre la que mejor se adapta a tus necesidades.
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio}
+                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

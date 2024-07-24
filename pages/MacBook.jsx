@@ -22,6 +22,7 @@ export default function MacBook({ products }) {
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [stock, setStock] = useState("");
 
   const filters = [
     {
@@ -111,10 +112,10 @@ export default function MacBook({ products }) {
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
                       <p className="text-sm text-muted-foreground">
-                        La mejor McBook es la que se adapta a tu estilo
+                        La mejor MacBook es la que se adapta a tu estilo
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio}
+                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

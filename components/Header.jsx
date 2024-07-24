@@ -103,7 +103,7 @@ export const Header = ({ products }) => {
             </svg>
           </button>
           {openDropdown === "apple" && (
-            <div className="nav-dropdown absolute top-full left-0 mt-2 w-full  bg-black text-white shadow-lg md:w-50 md:z-10 md:relative md:mt-0">
+            <div className="nav-dropdown absolute top-full left-0 mt-2 w-48 bg-black text-white shadow-lg">
               <Link
                 href="/MacBook"
                 className="block px-4 py-2 hover:bg-gray-800 text-white"
@@ -122,10 +122,7 @@ export const Header = ({ products }) => {
               <Link href="/iMac" className="block px-4 py-2 hover:bg-gray-800">
                 iMac
               </Link>
-              <Link
-                href="/apple/mac"
-                className="block px-4 py-2 hover:bg-gray-800"
-              >
+              <Link href="/Mac" className="block px-4 py-2 hover:bg-gray-800">
                 Mac
               </Link>
               <Link
@@ -166,7 +163,7 @@ export const Header = ({ products }) => {
             </svg>
           </button>
           {openDropdown === "smartphones" && (
-            <div className="nav-dropdown absolute top-full left-0 mt-2 w-full bg-black text-white shadow-lg md:w-48 md:relative md:mt-0">
+            <div className="nav-dropdown absolute top-full left-0 mt-2 w-48 bg-black text-white shadow-lg">
               <Link
                 href="/Samsung"
                 prefetch={false}
@@ -219,17 +216,20 @@ export const Header = ({ products }) => {
             </svg>
           </button>
           {openDropdown === "Tecnologia" && (
-            <div className="nav-dropdown absolute top-full left-0 mt-2 w-full bg-black text-white shadow-lg md:w-48 md:relative md:mt-0">
-              <Link
+            <div className="nav-dropdown absolute top-full left-0 mt-2 w-48 bg-black text-white shadow-lg">
+              {/* <Link
                 href="/MacBook"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 Notebooks
-              </Link>
-              <Link href="/iPad" className="block px-4 py-2 hover:bg-gray-800">
+              </Link> */}
+              <Link
+                href="/Consolas"
+                className="block px-4 py-2 hover:bg-gray-800"
+              >
                 Consolas
               </Link>
-              <Link
+              {/* <Link
                 href="/AppleWatch"
                 className="block px-4 py-2 hover:bg-gray-800"
               >
@@ -243,7 +243,7 @@ export const Header = ({ products }) => {
                 className="block px-4 py-2 hover:bg-gray-800"
               >
                 Kindle
-              </Link>
+              </Link> */}
               <Link
                 href="/Apple"
                 className="block px-4 py-2 font-bold text-[#1CA0F3] hover:bg-gray-800"

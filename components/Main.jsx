@@ -14,7 +14,7 @@ export const Main = ({ products }) => {
 
   return (
     <main className="flex-1 pt-16">
-      <section className=" h-[600px] w-full bg-white hidden md:block">
+      <section className=" h-[600px] w-full bg-white hidden md:block mt-4">
         <div className="flex items-center place-content-center w-full max-h-[600px]">
           <video autoPlay muted className="max-h-[600px] w-full object-cover">
             <source src="/videos/header.mp4" type="video/mp4" />
