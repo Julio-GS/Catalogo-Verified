@@ -114,7 +114,7 @@ export default function iPad({ products }) {
                         El mejor iPad es el que se adapta a tu vos
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
+                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

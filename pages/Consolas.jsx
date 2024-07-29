@@ -114,7 +114,7 @@ export default function Consolas({ products }) {
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
                       <p className="text-sm text-muted-foreground"></p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
+                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

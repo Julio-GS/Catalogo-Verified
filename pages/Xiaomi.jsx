@@ -114,7 +114,7 @@ export default function Xiaomi({ products }) {
                         Descubre el que mejor se adapte a tus necesidades.
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
+                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

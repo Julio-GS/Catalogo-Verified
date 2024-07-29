@@ -115,7 +115,7 @@ const Smartphone = ({ products }) => {
                         Cada Smartphone es único
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
+                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

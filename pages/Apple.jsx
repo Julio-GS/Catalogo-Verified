@@ -125,7 +125,7 @@ const Apple = ({ products }) => {
                         Todo lo que necesites saber sobre el {product.Nombre}
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
+                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>

@@ -115,7 +115,7 @@ export default function MacBook({ products }) {
                         La mejor MacBook es la que se adapta a tu estilo
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl">
-                        {product.Precio ? `$${product.Precio}` : "Sin Stock"}
+                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
                     </div>
                   </div>
