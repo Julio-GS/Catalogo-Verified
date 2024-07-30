@@ -3,17 +3,18 @@ import FiltersDrawer from "@/components/FiltersDrawer";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { filterProducts } from "@/lib/filterProducts";
-import { getSheetData } from "@/lib/googleSheets";
+import { getXiaomiData } from "@/lib/getXiaomi";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export async function getStaticProps() {
-  const products = await getSheetData();
+  const products = await getXiaomiData();
   return {
     props: {
       products,
     },
+    revalidate: 300,
   };
 }
 
@@ -90,7 +91,7 @@ export default function Xiaomi({ products }) {
               </div>
             </button>
             <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todas nuestros Smartphones Motorola
+              Descrubri todas nuestros Smartphones Xiaomi
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
               {filteredResults.map((product, index) => (
