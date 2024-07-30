@@ -14,7 +14,7 @@ const FiltersDrawer = ({ filters, onFilterChange, isOpen, onClose }) => {
 
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform transform ${
+      className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transition-transform transform mt-10 ${
         isOpen ? "translate-x-0 z-10" : "translate-x-full "
       }`}
     >
