@@ -3,13 +3,13 @@ import FiltersDrawer from "@/components/FiltersDrawer";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { filterProducts } from "@/lib/filterProducts";
-import { getXiaomiData } from "@/lib/getXiaomi";
+import { getSheetData } from "@/lib/googleSheets";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export async function getStaticProps() {
-  const products = await getXiaomiData();
+  const products = await getSheetData();
   return {
     props: {
       products,
