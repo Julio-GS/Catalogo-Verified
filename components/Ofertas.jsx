@@ -36,6 +36,9 @@ export const Tendencias = ({ products }) => {
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                     {item.Nombre}
                   </h5>
+                  <h4 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {item.Capacidad}
+                  </h4>
 
                   <div className="flex items-center justify-between pt-8">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
