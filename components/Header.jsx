@@ -3,7 +3,6 @@ import srcLogo from "@/public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import SearchBar from "./SearchBar";
 export const Header = ({ products }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -269,7 +268,7 @@ export const Header = ({ products }) => {
         </Link>
       </nav>
       <div className="flex items-center gap-2">
-        <SearchBar products={products} />
+        {/* <SearchBar products={products} /> */}
       </div>
     </header>
   );

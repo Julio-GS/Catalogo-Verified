@@ -42,7 +42,7 @@ export const Tendencias = ({ products }) => {
 
                   <div className="flex items-center justify-between pt-8">
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                      {item.Precio}
+                      {item.Precio ? `${item.Precio}` : "Sin Stock"}
                     </span>
                     <Link href="https://wa.me/5491164061265" type="button">
                       <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
