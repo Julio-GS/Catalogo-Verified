@@ -44,7 +44,7 @@ export const Footer = () => {
                 <rect width="20" height="16" x="2" y="4" rx="2" />
                 <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
               </svg>
-              <span>verified@gmail.com</span>
+              <span>verifiedtienda@gmail.com</span>
             </div>
             <div className="flex items-center gap-2">
               <svg
@@ -98,7 +98,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="container mx-auto px-4 md:px-6 mt-8 text-center text-muted-foreground text-sm">
-        &copy; 2024 AirShoes. Todos los derechos reservados.
+        &copy; 2024 Verified. Todos los derechos reservados.
       </div>
     </footer>
   );
