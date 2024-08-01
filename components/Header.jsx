@@ -77,7 +77,7 @@ export const Header = ({ products }) => {
           className="text-sm text-white font-medium hover:underline underline-offset-4"
           prefetch={false}
         >
-          Iphone
+          iPhone
         </Link>
         <div className="relative ">
           <button

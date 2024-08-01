@@ -97,7 +97,7 @@ export default function MacBook({ products }) {
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredResults.map((product, index) => (
                 <div key={index}>
-                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
+                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2 bg-white">
                     {/* <Link href={`/products/${product.ID}`}> */}
                     <Link
                       href={`https://wa.me/5491164061265?text=Hola%2C%20estoy%20interesado%20en%20este%20producto%20que%20vi%20en%20el%20catalogo%20web%20${product.Nombre}%20de%20${product.Capacidad}`}
@@ -112,13 +112,13 @@ export default function MacBook({ products }) {
                       alt={product.Nombre}
                       width={300}
                       height={300}
-                      className="h-[200px] pt-4 mx-auto "
+                      className="h-[200px] pt-4 mx-auto object-cover "
                     />
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
                       <h3 className="text-xl font-bold">{product.Capacidad}</h3>
                       <p className="text-sm text-muted-foreground">
-                        El mejor Iphone es el que se adapta a tu estilo
+                        La mejor MacBook es la que se adapta a tu estilo
                       </p>
                       <h4 className="text-lg font-semibold md:text-xl mt-4">
                         {product.Precio ? `${product.Precio}` : "Sin Stock"}
