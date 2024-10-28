@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./ui/button";
 export const Tendencias = ({ products }) => {
-  const Iphone = products.filter((product) => product.Categoría === "iPhone");
-  const tendencias = Iphone.slice(3, 11);
+  const Iphone = products.filter((product) =>
+    product.Nombre.includes("iPhone 16")
+  );
+
   return (
     <section className="bg-muted py-12 md:py-24">
       <div className="container">
@@ -15,7 +18,7 @@ export const Tendencias = ({ products }) => {
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-          {tendencias.map((item, index) => (
+          {Iphone.map((item, index) => (
             <Link
               // href={`/products/${item.ID}`}
               href={`https://wa.me/5491164061265?text=Hola%2C%20estoy%20interesado%20en%20este%20producto%20que%20vi%20en%20el%20catalogo%20web%20${item.Nombre}%20de%20${item.Capacidad}`}
@@ -44,16 +47,8 @@ export const Tendencias = ({ products }) => {
                     <span className="text-3xl font-bold text-gray-900 dark:text-white">
                       {item.Precio ? `${item.Precio}` : "Sin Stock"}
                     </span>
-                    <Link href="https://wa.me/5491164061265" type="button">
-                      <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-white font-medium">
-                        <div class="inline-flex h-12 translate-y-0 items-center justify-center px-6 text-neutral-950 transition duration-500 group-hover:-translate-y-[150%]">
-                          Consultar
-                        </div>
-                        <div class="absolute inline-flex h-12 w-full translate-y-[100%] items-center justify-center text-neutral-50 transition duration-500 group-hover:translate-y-0">
-                          <span class="absolute h-full w-full translate-y-full skew-y-12 scale-y-0 bg-[#6fbb6d] transition duration-500 group-hover:translate-y-0 group-hover:scale-150"></span>
-                          <span class="z-10">Consultar</span>
-                        </div>
-                      </button>
+                    <Link href="" type="button">
+                      <Button />
                     </Link>
                   </div>
                 </div>

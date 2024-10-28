@@ -96,9 +96,54 @@
   }
 }
 
-.background-image-header {
+/* .background-image-header {
   background-image: url("/visual_content/Header.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+} */
+
+/* Container for the header */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  background-color: black;
+  overflow: hidden;
+}
+
+/* Image styling */
+.iphone-image {
+  width: 100%;
+  max-width: 1200px;
+  object-fit: fill;
+  z-index: 1;
+}
+
+/* Title styling */
+.title {
+  position: absolute;
+  top: 20%; /* Ajusta la posición del texto */
+  font-size: 3.5rem; /* Tamaño del texto */
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+    /* Brillo del texto */ 0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+  z-index: 2;
+  animation: glow 2s infinite alternate ease-in-out; /* Efecto de iluminación */
+}
+
+/* Glow effect for the title */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+      0 0 50px rgba(255, 255, 255, 0.8), 0 0 70px rgba(255, 255, 255, 0.6);
+  }
 }
