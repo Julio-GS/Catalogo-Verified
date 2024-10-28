@@ -4,16 +4,13 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MoreProducts } from "@/components/MoreProducts";
 import { ProductDetail } from "@/components/ProductDetail";
-import { getXiaomiData } from "@/lib/getXiaomi";
 import { getSheetData } from "@/lib/googleSheets"; // Asegúrate de importar correctamente la función
 import { useRouter } from "next/router";
 
 export async function fetchData() {
   const products = await getSheetData();
-
-  const xiaomi = await getXiaomiData();
   //console.log(xiaomi);
-  const allProducts = [...products, ...xiaomi];
+  const allProducts = [...products];
   console.log(allProducts);
   return allProducts;
 }
@@ -30,9 +27,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const products = await getSheetData();
-  const xiaomi = await getXiaomiData();
   //console.log(xiaomi);
-  const allProducts = [...products, ...xiaomi];
+  const allProducts = [...products];
 
   console.log(allProducts);
   const product = allProducts.find((p) => p.ID === params.id);
