@@ -117,10 +117,12 @@ export default function Consolas({ products }) {
                     />
                     <div className="p-4 bg-background">
                       <h3 className="text-xl font-bold">{product.Nombre}</h3>
-                      <h3 className="text-xl font-bold">{product.Capacidad}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        El mejor Iphone es el que se adapta a tu estilo
-                      </p>
+                      <h3 className="text-xl font-bold">
+                        {product.Capacidad
+                          ? `${product.Capacidad}`
+                          : "No especificado"}
+                      </h3>
+                      <p className="text-sm text-muted-foreground"></p>
                       <h4 className="text-lg font-semibold md:text-xl mt-4">
                         {product.Precio ? `${product.Precio}` : "Sin Stock"}
                       </h4>
