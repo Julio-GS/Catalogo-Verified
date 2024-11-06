@@ -60,7 +60,7 @@ export const Header = () => {
           onClick={handleMenuToggle}
         ></button>
         <Link
-          href="/AllProducts"
+          href="/iPhone"
           className="text-sm text-white font-medium hover:underline underline-offset-4"
           prefetch={false}
         >

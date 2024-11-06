@@ -74,7 +74,7 @@ export const Footer = () => {
             <Link href="/" prefetch={false}>
               Inicio
             </Link>
-            <Link href="/AllProducts" prefetch={false}>
+            <Link href="/iPhone" prefetch={false}>
               iPhone
             </Link>
             <Link href="/Smartphone" prefetch={false}>
