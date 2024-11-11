@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import ProductCard from "@/components/productCard";
 import FilterIcon from "@/components/ui/svg/FilterIcon";
-import { getSheetData } from "@/lib/googleSheets"; // Ajusta la ruta según sea necesario
+import { getSheetData } from "@/lib/googleSheets";
 import { useEffect, useState } from "react";
 
 export async function getStaticProps() {

@@ -27,7 +27,7 @@ const DropdownApple = () => {
         href="/Apple"
         className="block px-4 py-2 font-bold text-[#1CA0F3] hover:bg-gray-800"
       >
-        Todos los productos de Apple
+        Encontrá tu iPhone Ideal
       </Link>
     </div>
   );
