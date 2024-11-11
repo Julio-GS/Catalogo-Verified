@@ -66,36 +66,7 @@ export const ProductDetail = ({ product }) => {
             </h3>
             <p className="text-gray-600">{product.Descripcion}</p>
           </div>
-          {/* <div className="mb-8">
-            <h3 className="text-lg font-medium text-gray-800 mb-2">
-              Zapatillas Premium Inspiradas en Diseños Clásicos
-            </h3>
-            <p className="text-gray-600">
-              ¿Buscas estilo y comodidad sin romper la billetera? Nuestras
-              zapatillas premium son la elección perfecta. Inspiradas en los
-              diseños clásicos de las marcas más reconocidas, estas imitaciones
-              de alta calidad te ofrecen lo mejor de ambos mundos.
-            </p>
-          </div>
-          <div className="mb-8">
-            <h3 className="text-lg font-medium text-gray-800 mb-2">
-              Características destacadas:
-            </h3>
-            <p className="text-gray-600">
-              Materiales de primera: Utilizamos materiales cuidadosamente
-              seleccionados para garantizar la durabilidad y la comodidad
-              durante todo el día.
-            </p>
-            <p className="text-gray-600 pt-4">
-              Diseño atemporal: Desde las icónicas rayas laterales hasta las
-              suelas resistentes, nuestras zapatillas imitan los detalles que
-              amas.
-            </p>
-            <p className="text-gray-600 pt-4">
-              Comodidad sin igual: La plantilla acolchada y la suela flexible te
-              mantienen cómodo en cada paso.
-            </p>
-          </div> */}
+
           {product.Capacidad ? (
             <div className="mb-8">
               <h3 className="text-lg font-medium text-gray-800 mb-2">

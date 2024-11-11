@@ -1,12 +1,9 @@
 import "@/app/globals.css";
-import FiltersDrawer from "@/components/FiltersDrawer";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import ProductCard from "@/components/productCard";
 import FilterIcon from "@/components/ui/svg/FilterIcon";
-import { filterProducts } from "@/lib/filterProducts";
 import { getSheetData } from "@/lib/googleSheets"; // Ajusta la ruta según sea necesario
-import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export async function getStaticProps() {
@@ -24,116 +21,126 @@ const iPhone = ({ products }) => {
   const [results, setResults] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedFilters, setSelectedFilters] = useState({
+    stock: [],
+    capacity: [],
+  });
 
   const filters = [
     {
       name: "stock",
       label: "Stock",
-      options: [
-        ...new Set(
-          products
-            .filter((product) => product.Categoría === "iPhone")
-            .map((product) => product.Stock)
-        ),
-      ],
+      options: [...new Set(Iphone.map((product) => product.Stock))],
     },
     {
       name: "capacity",
       label: "Capacidad",
-      options: [
-        ...new Set(
-          products
-            .filter((product) => product.Categoría === "iPhone")
-            .map((product) => product.Capacidad)
-        ),
-      ],
+      options: [...new Set(Iphone.map((product) => product.Capacidad))],
     },
   ];
+
   useEffect(() => {
     setResults(Iphone);
     setFilteredResults(Iphone);
-  }, []);
-  const handleFilterChange = (selectedFilters) => {
-    const filtered = filterProducts(results, selectedFilters);
-    setFilteredResults(filtered);
+  }, [products]);
+
+  const handleFilterChange = (name, option) => {
+    setSelectedFilters((prevFilters) => {
+      if (name === "stock") {
+        return {
+          ...prevFilters,
+          stock: prevFilters.stock.includes(option) ? [] : [option],
+        };
+      } else {
+        const isSelected = prevFilters[name].includes(option);
+        return {
+          ...prevFilters,
+          [name]: isSelected
+            ? prevFilters[name].filter((item) => item !== option)
+            : [...prevFilters[name], option],
+        };
+      }
+    });
   };
+
+  useEffect(() => {
+    const filtered = results.filter((product) => {
+      const stockMatch =
+        selectedFilters.stock.length === 0 ||
+        selectedFilters.stock.includes(product.Stock);
+      const capacityMatch =
+        selectedFilters.capacity.length === 0 ||
+        selectedFilters.capacity.includes(product.Capacidad);
+
+      return stockMatch && capacityMatch;
+    });
+
+    setFilteredResults(filtered);
+  }, [selectedFilters, results]);
+
   return (
     <div>
       <Header />
-      <div
-        onClick={() => {
-          if (isDrawerOpen) setIsDrawerOpen(true);
-        }}
-      >
-        <FiltersDrawer
-          filters={filters}
-          onFilterChange={handleFilterChange}
-          isOpen={isDrawerOpen}
-          onClose={() => setIsDrawerOpen(false)}
-        />
-      </div>
-      <div
-        onClick={() => {
-          if (isDrawerOpen) setIsDrawerOpen(!isDrawerOpen);
-        }}
-      >
-        <section className="bg-muted py-12">
-          <div className="max-w-6xl mx-auto px-4 md:px-6 mt-10 ">
-            <button
-              class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 max-w- "
-              onClick={() => setIsDrawerOpen(!isDrawerOpen)}
-            >
-              <span>Filtros</span>
-              <div class="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100">
-                <FilterIcon />
-              </div>
-            </button>
-            <h2 className="text-2xl font-bold mb-6 text-center">
-              Descrubri todos nuestro Iphone
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredResults.map((product, index) => (
-                <div key={index}>
-                  <div className="relative overflow-hidden transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
-                    {/* <Link href={`/products/${product.ID}`}> */}
-                    <Link
-                      href={`https://wa.me/5491164061265?text=Hola%2C%20estoy%20interesado%20en%20este%20producto%20que%20vi%20en%20el%20catalogo%20web%20${product.Nombre}%20de%20${product.Capacidad}`}
-                      prefetch={false}
-                    >
-                      <div className="absolute inset-0 z-10">
-                        <span className="sr-only">View</span>
-                      </div>
-                    </Link>
-                    <Image
-                      src={product.imgPrincipal}
-                      alt={product.Nombre}
-                      width={500}
-                      height={400}
-                      className="object-cover w-full h-64"
-                    />
-                    <div className="p-4 bg-background">
-                      <h3 className="text-xl font-bold">{product.Nombre}</h3>
-                      <h3 className="text-xl font-bold">{product.Capacidad}</h3>
-                      <p className="text-sm text-muted-foreground">
-                        El mejor Iphone es el que se adapta a tu estilo
-                      </p>
-                      <h4 className="text-lg font-semibold md:text-xl mt-4">
-                        {product.Precio ? `${product.Precio}` : "Sin Stock"}
-                      </h4>
-                      <button class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 transition hover:scale-110 mt-4">
-                        <span>Consultar</span>
-                        <div class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-12deg)_translateX(-100%)] group-hover:duration-1000 group-hover:[transform:skew(-12deg)_translateX(100%)]">
-                          <div class="relative h-full w-8 bg-white/20"></div>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
+
+      <div className="flex flex-col lg:flex-row pt-20">
+        <div
+          className={`w-full lg:w-1/4 p-4 ${
+            isDrawerOpen ? "block" : "hidden lg:block"
+          }`}
+        >
+          {filters.map((filter, index) => (
+            <div className="border-b mt-4" key={index}>
+              <h2 className="text-lg font-bold mb-2">{filter.label}</h2>
+              {filter.options.map((option, i) => (
+                <div key={i} className="flex items-center ">
+                  <input
+                    type="checkbox"
+                    id={`${filter.name}-${option}`}
+                    name={filter.name}
+                    value={option}
+                    checked={selectedFilters[filter.name].includes(option)}
+                    onChange={() => handleFilterChange(filter.name, option)}
+                    class="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-700 rounded focus:ring-blue-500 focus:ring-2 "
+                  />
+                  <label
+                    htmlFor={`${filter.name}-${option}`}
+                    class="w-full py-2 ms-2 text-sm font-medium text-gray-900 cursor-pointer"
+                  >
+                    {option}
+                  </label>
                 </div>
               ))}
             </div>
+          ))}
+        </div>
+
+        <div className="w-full lg:w-3/4 p-4">
+          <button
+            className="lg:hidden group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200 mb-4"
+            onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+          >
+            <span>Filtros</span>
+            <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100">
+              <FilterIcon />
+            </div>
+          </button>
+
+          <h2 className="text-2xl font-bold mb-6 text-left">
+            Descubre todos nuestros iPhone
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredResults.length > 0 ? (
+              filteredResults.map((product, index) => (
+                <ProductCard product={product} index={index} />
+              ))
+            ) : (
+              <p>No se encontraron productos con los filtros seleccionados.</p>
+            )}
           </div>
-        </section>
+        </div>
       </div>
+
       <Footer />
     </div>
   );
