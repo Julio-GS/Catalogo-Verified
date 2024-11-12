@@ -1,19 +1,16 @@
-import React from "react";
-
-const NavbarIcon = (props) => (
+const NavbarIcon = () => (
   <svg
-    className="w-2.5 h-2.5 ms-2.5"
-    aria-hidden="true"
+    className="ml-1 h-4 w-4"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewBox="0 0 10 6"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
   >
     <path
-      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      d="m1 1 4 4 4-4"
+      d="M19 9l-7 7-7-7"
     />
   </svg>
 );

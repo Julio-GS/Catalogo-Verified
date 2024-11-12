@@ -1,6 +1,6 @@
+import Button from "@/components/buttonCard";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "./ui/button";
 const ProductCard = ({ product, index }) => {
   return (
     <Link

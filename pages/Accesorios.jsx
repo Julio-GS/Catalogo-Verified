@@ -2,7 +2,7 @@ import "@/app/globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import ProductCard from "@/components/productCard";
-import FilterIcon from "@/components/ui/svg/FilterIcon";
+import FilterIcon from "@/components/svg/FilterIcon";
 import { getSheetData } from "@/lib/googleSheets";
 import { useEffect, useState } from "react";
 

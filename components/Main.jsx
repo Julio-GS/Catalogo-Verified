@@ -16,7 +16,7 @@ export const Main = ({ products }) => {
   }, []);
 
   return (
-    <main className="flex-1 pt-16">
+    <main className="flex-1 ">
       <section className=" h-[600px] w-full bg-white hidden md:block">
         {/* <div className="flex items-center place-content-center w-full max-h-[600px]">
           <video autoPlay muted className="max-h-[600px] w-full object-cover">
